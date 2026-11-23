@@ -5,7 +5,8 @@
   "description": "Desafio de Banco de Dados Não Relacional - marketplace",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "seed": "node scripts/seed.js"
   },
   "dependencies": {
     "dotenv": "^18.0.10",

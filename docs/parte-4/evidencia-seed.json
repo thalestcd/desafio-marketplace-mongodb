@@ -1,0 +1,394 @@
+{
+  "carga": {
+    "data": "2026-11-23T01:05:36.456Z",
+    "bancoDaApi": "marketplace_validacao_api",
+    "bancoDoSeed": "marketplace_seed_test",
+    "tamanhoDoLote": 10000,
+    "lotes": {
+      "usuarios": [
+        5000
+      ],
+      "produtos": [
+        1000
+      ],
+      "pedidos": [
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000
+      ]
+    }
+  },
+  "consultaMongoDB": {
+    "data": {
+      "$date": "2026-11-23T01:05:37.69Z"
+    },
+    "versaoMongoDB": "8.3.8",
+    "bancoDoSeed": "marketplace_seed_test",
+    "colecoes": {
+      "usuarios": {
+        "total": 5000,
+        "indices": [
+          {
+            "v": 2,
+            "key": {
+              "_id": 1
+            },
+            "name": "_id_"
+          }
+        ]
+      },
+      "produtos": {
+        "total": 1000,
+        "indices": [
+          {
+            "v": 2,
+            "key": {
+              "_id": 1
+            },
+            "name": "_id_"
+          }
+        ]
+      },
+      "pedidos": {
+        "total": 100000,
+        "indices": [
+          {
+            "v": 2,
+            "key": {
+              "_id": 1
+            },
+            "name": "_id_"
+          }
+        ]
+      }
+    },
+    "amostras": {
+      "vendedor": {
+        "_id": {
+          "$oid": "6b039160a11d76c92e8dbf71"
+        },
+        "nome": "Loja Tech",
+        "tipo": "vendedor"
+      },
+      "comprador": {
+        "_id": {
+          "$oid": "6b039160a11d76c92e8dc359"
+        },
+        "nome": "Thales Cambraia Dias",
+        "tipo": "comprador"
+      },
+      "produto": {
+        "_id": {
+          "$oid": "6b039160a11d76c92e8dd2f9"
+        },
+        "vendedorId": {
+          "$oid": "6b039160a11d76c92e8dbf71"
+        },
+        "nome": "Teclado Mecânico",
+        "preco": 250,
+        "estoque": 50
+      },
+      "pedido": {
+        "_id": {
+          "$oid": "6b039160a11d76c92e8dd6e1"
+        },
+        "compradorId": {
+          "$oid": "6b039160a11d76c92e8dc359"
+        },
+        "produtoId": {
+          "$oid": "6b039160a11d76c92e8dd2f9"
+        },
+        "quantidade": 2,
+        "valorTotal": 500,
+        "data": {
+          "$date": "2026-11-23T01:05:36.456Z"
+        }
+      }
+    }
+  },
+  "bancoDaApiAntes": {
+    "banco": "marketplace_validacao_api",
+    "colecoes": {
+      "usuarios": [
+        {
+          "_id": {
+            "$oid": "6b038d04d2fa52cffd834baf"
+          },
+          "nome": "Loja Tech",
+          "tipo": "vendedor"
+        },
+        {
+          "_id": {
+            "$oid": "6b038d04d2fa52cffd834bb0"
+          },
+          "nome": "Thales Cambraia Dias",
+          "tipo": "comprador"
+        }
+      ],
+      "produtos": [
+        {
+          "_id": {
+            "$oid": "6b038d04d2fa52cffd834bb1"
+          },
+          "vendedorId": {
+            "$oid": "6b038d04d2fa52cffd834baf"
+          },
+          "nome": "Teclado Mecânico",
+          "preco": 250,
+          "estoque": 3
+        },
+        {
+          "_id": {
+            "$oid": "6b038d05da11a05ad229b003"
+          },
+          "vendedorId": {
+            "$oid": "6b038d04d2fa52cffd834baf"
+          },
+          "nome": "Produto para concorrência",
+          "preco": 10,
+          "estoque": 0
+        }
+      ],
+      "pedidos": [
+        {
+          "_id": {
+            "$oid": "6b038d04d2fa52cffd834bb2"
+          },
+          "compradorId": {
+            "$oid": "6b038d04d2fa52cffd834bb0"
+          },
+          "produtoId": {
+            "$oid": "6b038d04d2fa52cffd834bb1"
+          },
+          "quantidade": 2,
+          "valorTotal": 500,
+          "data": {
+            "$date": "2026-11-23T00:47:00.922Z"
+          }
+        },
+        {
+          "_id": {
+            "$oid": "6b038d05da11a05ad229b004"
+          },
+          "compradorId": {
+            "$oid": "6b038d04d2fa52cffd834bb0"
+          },
+          "produtoId": {
+            "$oid": "6b038d05da11a05ad229b003"
+          },
+          "quantidade": 1,
+          "valorTotal": 10,
+          "data": {
+            "$date": "2026-11-23T00:47:01.734Z"
+          }
+        }
+      ]
+    }
+  },
+  "bancoDaApiDepois": {
+    "banco": "marketplace_validacao_api",
+    "colecoes": {
+      "usuarios": [
+        {
+          "_id": {
+            "$oid": "6b038d04d2fa52cffd834baf"
+          },
+          "nome": "Loja Tech",
+          "tipo": "vendedor"
+        },
+        {
+          "_id": {
+            "$oid": "6b038d04d2fa52cffd834bb0"
+          },
+          "nome": "Thales Cambraia Dias",
+          "tipo": "comprador"
+        }
+      ],
+      "produtos": [
+        {
+          "_id": {
+            "$oid": "6b038d04d2fa52cffd834bb1"
+          },
+          "vendedorId": {
+            "$oid": "6b038d04d2fa52cffd834baf"
+          },
+          "nome": "Teclado Mecânico",
+          "preco": 250,
+          "estoque": 3
+        },
+        {
+          "_id": {
+            "$oid": "6b038d05da11a05ad229b003"
+          },
+          "vendedorId": {
+            "$oid": "6b038d04d2fa52cffd834baf"
+          },
+          "nome": "Produto para concorrência",
+          "preco": 10,
+          "estoque": 0
+        }
+      ],
+      "pedidos": [
+        {
+          "_id": {
+            "$oid": "6b038d04d2fa52cffd834bb2"
+          },
+          "compradorId": {
+            "$oid": "6b038d04d2fa52cffd834bb0"
+          },
+          "produtoId": {
+            "$oid": "6b038d04d2fa52cffd834bb1"
+          },
+          "quantidade": 2,
+          "valorTotal": 500,
+          "data": {
+            "$date": "2026-11-23T00:47:00.922Z"
+          }
+        },
+        {
+          "_id": {
+            "$oid": "6b038d05da11a05ad229b004"
+          },
+          "compradorId": {
+            "$oid": "6b038d04d2fa52cffd834bb0"
+          },
+          "produtoId": {
+            "$oid": "6b038d05da11a05ad229b003"
+          },
+          "quantidade": 1,
+          "valorTotal": 10,
+          "data": {
+            "$date": "2026-11-23T00:47:01.734Z"
+          }
+        }
+      ]
+    }
+  },
+  "reexecucao": {
+    "codigo": 1,
+    "mensagem": "Falha no seed: O banco do seed já contém coleções. Use um novo sufixo em SEED_DB_NAME. "
+  },
+  "bancoIgualAoDaApi": {
+    "codigo": 1,
+    "mensagem": "Falha no seed: O banco do seed precisa ser diferente do banco da API em MONGODB_URI. "
+  },
+  "regressaoHttp": {
+    "fluxo": {
+      "data": "2026-11-23T01:05:40.907Z",
+      "base": "http://127.0.0.1:59972",
+      "chamadas": [
+        {
+          "metodo": "POST",
+          "rota": "/usuarios",
+          "corpo": {
+            "nome": "Loja Tech",
+            "tipo": "vendedor"
+          },
+          "status": 201,
+          "resposta": {
+            "nome": "Loja Tech",
+            "tipo": "vendedor",
+            "id": "6b0391647de8572982d99584"
+          }
+        },
+        {
+          "metodo": "POST",
+          "rota": "/usuarios",
+          "corpo": {
+            "nome": "Thales Cambraia Dias",
+            "tipo": "comprador"
+          },
+          "status": 201,
+          "resposta": {
+            "nome": "Thales Cambraia Dias",
+            "tipo": "comprador",
+            "id": "6b0391647de8572982d99585"
+          }
+        },
+        {
+          "metodo": "POST",
+          "rota": "/produtos",
+          "corpo": {
+            "vendedorId": "6b0391647de8572982d99584",
+            "nome": "Teclado Mecânico",
+            "preco": 250,
+            "estoque": 5
+          },
+          "status": 201,
+          "resposta": {
+            "vendedorId": "6b0391647de8572982d99584",
+            "nome": "Teclado Mecânico",
+            "preco": 250,
+            "estoque": 5,
+            "id": "6b0391647de8572982d99586"
+          }
+        },
+        {
+          "metodo": "GET",
+          "rota": "/produtos",
+          "status": 200,
+          "resposta": [
+            {
+              "vendedorId": "6b0391647de8572982d99584",
+              "nome": "Teclado Mecânico",
+              "preco": 250,
+              "estoque": 5,
+              "id": "6b0391647de8572982d99586"
+            }
+          ]
+        },
+        {
+          "metodo": "POST",
+          "rota": "/pedidos",
+          "corpo": {
+            "compradorId": "6b0391647de8572982d99585",
+            "produtoId": "6b0391647de8572982d99586",
+            "quantidade": 2
+          },
+          "status": 201,
+          "resposta": {
+            "compradorId": "6b0391647de8572982d99585",
+            "produtoId": "6b0391647de8572982d99586",
+            "quantidade": 2,
+            "valorTotal": 500,
+            "data": "2026-11-23T01:05:41.022Z",
+            "id": "6b0391657de8572982d99587"
+          }
+        },
+        {
+          "metodo": "GET",
+          "rota": "/produtos",
+          "status": 200,
+          "resposta": [
+            {
+              "vendedorId": "6b0391647de8572982d99584",
+              "nome": "Teclado Mecânico",
+              "preco": 250,
+              "estoque": 3,
+              "id": "6b0391647de8572982d99586"
+            }
+          ]
+        }
+      ]
+    },
+    "verificacoesAposReinicio": 16,
+    "banco": "marketplace_validacao_parte4",
+    "inicializacoes": [
+      {
+        "pid": 25392,
+        "porta": 59972
+      },
+      {
+        "pid": 25932,
+        "porta": 59980
+      }
+    ]
+  }
+}

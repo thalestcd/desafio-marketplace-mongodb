@@ -29,3 +29,4 @@ Rotas extras de consulta: `GET /usuarios`, `GET /pedidos` e `GET /resumo`.
 - `parte-1` registra a implementação inicial.
 - `parte-2` registra os [testes da API em memória](docs/parte-2/ENTREGA.md), com evidências HTTP e coleção Postman.
 - `parte-3` documenta a [persistência com MongoDB e os testes](docs/parte-3/ENTREGA.md).
+- `parte-4` inclui o [seed e a verificação do banco de testes](docs/parte-4/ENTREGA.md). Execute `npm run seed` para carregar o banco separado.
