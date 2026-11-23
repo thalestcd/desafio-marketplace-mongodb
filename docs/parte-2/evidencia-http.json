@@ -1,0 +1,98 @@
+{
+  "data": "2026-11-23T00:42:58.213Z",
+  "base": "http://127.0.0.1:61620",
+  "chamadas": [
+    {
+      "metodo": "POST",
+      "rota": "/usuarios",
+      "corpo": {
+        "nome": "Loja Tech",
+        "tipo": "vendedor"
+      },
+      "status": 201,
+      "resposta": {
+        "id": 1,
+        "nome": "Loja Tech",
+        "tipo": "vendedor"
+      }
+    },
+    {
+      "metodo": "POST",
+      "rota": "/usuarios",
+      "corpo": {
+        "nome": "Thales Cambraia Dias",
+        "tipo": "comprador"
+      },
+      "status": 201,
+      "resposta": {
+        "id": 2,
+        "nome": "Thales Cambraia Dias",
+        "tipo": "comprador"
+      }
+    },
+    {
+      "metodo": "POST",
+      "rota": "/produtos",
+      "corpo": {
+        "vendedorId": 1,
+        "nome": "Teclado Mecânico",
+        "preco": 250,
+        "estoque": 5
+      },
+      "status": 201,
+      "resposta": {
+        "id": 1,
+        "vendedorId": 1,
+        "nome": "Teclado Mecânico",
+        "preco": 250,
+        "estoque": 5
+      }
+    },
+    {
+      "metodo": "GET",
+      "rota": "/produtos",
+      "status": 200,
+      "resposta": [
+        {
+          "id": 1,
+          "vendedorId": 1,
+          "nome": "Teclado Mecânico",
+          "preco": 250,
+          "estoque": 5
+        }
+      ]
+    },
+    {
+      "metodo": "POST",
+      "rota": "/pedidos",
+      "corpo": {
+        "compradorId": 2,
+        "produtoId": 1,
+        "quantidade": 2
+      },
+      "status": 201,
+      "resposta": {
+        "id": 1,
+        "compradorId": 2,
+        "produtoId": 1,
+        "quantidade": 2,
+        "valorTotal": 500,
+        "data": "2026-11-23T00:42:58.280Z"
+      }
+    },
+    {
+      "metodo": "GET",
+      "rota": "/produtos",
+      "status": 200,
+      "resposta": [
+        {
+          "id": 1,
+          "vendedorId": 1,
+          "nome": "Teclado Mecânico",
+          "preco": 250,
+          "estoque": 3
+        }
+      ]
+    }
+  ]
+}

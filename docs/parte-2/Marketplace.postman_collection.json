@@ -1,0 +1,206 @@
+{
+  "info": {
+    "name": "Marketplace — Parte 2",
+    "description": "Execute em ordem no Collection Runner. Os IDs retornados pelas criações são reutilizados nas próximas requisições.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:3000"
+    },
+    {
+      "key": "vendedorId",
+      "value": ""
+    },
+    {
+      "key": "compradorId",
+      "value": ""
+    },
+    {
+      "key": "produtoId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Cadastrar vendedor",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/usuarios",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nome\":\"Loja Tech\",\"tipo\":\"vendedor\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const usuario = pm.response.json();",
+              "pm.test(\"Usuário cadastrado\", () => { pm.response.to.have.status(201); pm.expect(usuario.nome).to.eql(\"Loja Tech\"); pm.expect(usuario.tipo).to.eql(\"vendedor\"); pm.expect(usuario.id).to.exist; });",
+              "pm.collectionVariables.set(\"vendedorId\", usuario.id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cadastrar comprador",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/usuarios",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nome\":\"Thales Cambraia Dias\",\"tipo\":\"comprador\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const usuario = pm.response.json();",
+              "pm.test(\"Usuário cadastrado\", () => { pm.response.to.have.status(201); pm.expect(usuario.nome).to.eql(\"Thales Cambraia Dias\"); pm.expect(usuario.tipo).to.eql(\"comprador\"); pm.expect(usuario.id).to.exist; });",
+              "pm.collectionVariables.set(\"compradorId\", usuario.id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cadastrar produto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/produtos",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"vendedorId\":{{vendedorId}},\"nome\":\"Teclado Mecânico\",\"preco\":250,\"estoque\":5}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const produto = pm.response.json();",
+              "pm.test('Produto criado com preço 250 e estoque 5', () => { pm.response.to.have.status(201); pm.expect(produto.nome).to.eql('Teclado Mecânico'); pm.expect(produto.preco).to.eql(250); pm.expect(produto.estoque).to.eql(5); pm.expect(produto.id).to.exist; });",
+              "pm.collectionVariables.set('produtoId', produto.id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Listar produtos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/produtos"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const produto = pm.response.json().find(item => String(item.id) === String(pm.collectionVariables.get('produtoId')));",
+              "pm.test('Produto disponível', () => { pm.response.to.have.status(200); pm.expect(produto).to.exist; pm.expect(produto.estoque).to.eql(5); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Criar pedido",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/pedidos",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"compradorId\":{{compradorId}},\"produtoId\":{{produtoId}},\"quantidade\":2}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const pedido = pm.response.json();",
+              "pm.test('Pedido de duas unidades, total 500', () => { pm.response.to.have.status(201); pm.expect(pedido.quantidade).to.eql(2); pm.expect(pedido.valorTotal).to.eql(500); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Conferir estoque final",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/produtos"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const produto = pm.response.json().find(item => String(item.id) === String(pm.collectionVariables.get('produtoId')));",
+              "pm.test('Estoque final 3', () => { pm.response.to.have.status(200); pm.expect(produto).to.exist; pm.expect(produto.estoque).to.eql(3); });"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

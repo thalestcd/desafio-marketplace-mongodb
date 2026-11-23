@@ -28,4 +28,5 @@ Rotas extras de consulta: `GET /usuarios`, `GET /pedidos` e `GET /resumo`.
 
 ### Histórico das entregas
 
-Esta entrega corresponde à versão `parte-1`. As partes posteriores serão publicadas individualmente conforme a evolução do projeto.
+- `parte-1` registra a implementação inicial.
+- `parte-2` registra os [testes da API em memória](docs/parte-2/ENTREGA.md), com evidências HTTP e coleção Postman.
