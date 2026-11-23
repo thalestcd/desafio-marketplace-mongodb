@@ -1,0 +1,14 @@
+{
+  "name": "desafio-marketplace-mongodb-thales",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Desafio de Banco de Dados Não Relacional - marketplace",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "author": "Thales Cambraia Dias"
+}
